@@ -10,6 +10,12 @@ public class Dev {
     private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
     private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
 
+    private Dev() {}
+
+    public Dev(String nome) {
+        this.nome = nome;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -54,6 +60,16 @@ public class Dev {
                 .stream()
                 .mapToDouble(Conteudo::calcularXp)
                 .sum();
+    }
+
+    @Override
+    public String toString() {
+        return "Dev{" +
+                "nome='" + nome + '\'' +
+                ", conteudosInscritos=" + conteudosInscritos +
+                ", conteudosConcluidos=" + conteudosConcluidos +
+                ", XP=" + calcularTotalXp() +
+                '}';
     }
 
     @Override
